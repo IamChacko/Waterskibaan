@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test
+
+namespace Waterskibaan
 {
-    class Program
+    class Lijn
     {
-        static void Main(string[] args)
-        {
-        }
+        public int PositieOpKabel { get; set; }
     }
 }
