@@ -10,8 +10,9 @@ namespace Waterskibaan
     {
         static void Main(string[] args)
         {
-            
-            TestOpdracht2();
+
+            //TestOpdracht2();
+            TestOpdracht3();
         }
         private static void TestOpdracht2()
         {
@@ -39,6 +40,22 @@ namespace Waterskibaan
             k.VerwijderLijnVanKabel();
 
             Console.WriteLine(k.ToString());
+        }
+
+        private static void TestOpdracht3()
+        {
+            LijnenVoorraad lv = new LijnenVoorraad();
+            Lijn l1 = new Lijn() { PositieOpKabel = 0 };
+            Lijn l2 = new Lijn() { PositieOpKabel = 3 };
+            Lijn l3 = new Lijn() { PositieOpKabel = 8 };
+            
+            lv.LijnToevoegenAanRij(l1);
+            lv.LijnToevoegenAanRij(l2);
+            lv.LijnToevoegenAanRij(l3);
+            Console.WriteLine(lv);
+
+            lv.VerwijderEersteLijn();
+            Console.WriteLine(lv);
         }
     }
 }
