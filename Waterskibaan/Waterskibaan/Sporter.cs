@@ -9,6 +9,7 @@ namespace Waterskibaan
 {
     class Sporter
     {
+        Random r = new Random();
         public int AantalRondenNogTeGaan { get; set; }
         public Zwemvest Zwemvest { get; set; }
         public Skies Skies { get; set; }
@@ -19,8 +20,11 @@ namespace Waterskibaan
         public Sporter(List<IMoves> moves)
         {
             Moves = MoveCollection.GetWillekeurigeMoves();
-        
-            AantalRondenNogTeGaan = 0;
+            AantalRondenNogTeGaan = r.Next(1,3);
+           
+            KnownColor[] Kleurnamen = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+            KnownColor randomColorName = Kleurnamen[r.Next(Kleurnamen.Length)];
+            KledingKleur = Color.FromKnownColor(randomColorName);
         }
 
         
