@@ -12,7 +12,8 @@ namespace Waterskibaan
         {
 
             //TestOpdracht2();
-            TestOpdracht3();
+            // TestOpdracht3();
+            TestOpdracht5();
         }
         private static void TestOpdracht2()
         {
@@ -56,6 +57,15 @@ namespace Waterskibaan
 
             lv.VerwijderEersteLijn();
             Console.WriteLine(lv);
+        }
+
+        private static void TestOpdracht5()
+        {
+
+            foreach (IMoves move in MoveCollection.GetWillekeurigeMoves())
+            {
+                Console.WriteLine(move);
+            }
         }
     }
 }
