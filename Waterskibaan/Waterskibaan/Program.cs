@@ -67,5 +67,12 @@ namespace Waterskibaan
                 Console.WriteLine(move);
             }
         }
+
+        ‘private static void TestOpdracht8()
+        {
+            Waterskibaan wb = new Waterskibaan();
+            Sporter sp = new Sporter();
+            wb.SporterStart()
+        }
     }
 }

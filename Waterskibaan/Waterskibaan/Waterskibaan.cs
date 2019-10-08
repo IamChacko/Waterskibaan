@@ -26,11 +26,12 @@ namespace Waterskibaan
 
         public void SporterStart(Sporter sp)
         {
-            if (kabel.IsStartPositieLeeg())
+            if (kabel.IsStartPositieLeeg() && sp.Skies.GetType().Name.CompareTo("Skies") == 0)
             {
                 Lijn lijn = Lv.VerwijderEersteLijn();
                 kabel.NeemLijnInGebruik(lijn);
                 lijn.Sp = sp;
+
             }
         }
 

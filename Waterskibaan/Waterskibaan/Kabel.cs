@@ -35,9 +35,11 @@ namespace Waterskibaan
                 if (lijn.PositieOpKabel != 9)
                 {
                     lijn.PositieOpKabel += 1;
-                } else
+                }
+                else
                 {
                     lijn.PositieOpKabel = 0;
+                    lijn.Sp.AantalRondenNogTeGaan--;
                 }
             }
         }
@@ -46,9 +48,8 @@ namespace Waterskibaan
         {
             foreach (Lijn lijn in _lijnen) 
             {
-               if (lijn.PositieOpKabel == 9)
+               if (lijn.PositieOpKabel == 9 && lijn.Sp.AantalRondenNogTeGaan == 1)
                 {
-                    
                     _lijnen.RemoveLast();
                     return lijn;
                 }
@@ -62,6 +63,7 @@ namespace Waterskibaan
             string sreturn = "";
             
             
+            s
                 foreach (Lijn lijn in _lijnen)
                 {
                 sreturn += $"{lijn.PositieOpKabel}|";
