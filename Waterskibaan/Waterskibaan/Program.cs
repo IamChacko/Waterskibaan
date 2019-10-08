@@ -13,7 +13,10 @@ namespace Waterskibaan
 
             //TestOpdracht2();
             // TestOpdracht3();
-            TestOpdracht5();
+            // TestOpdracht5();
+            //TestOpdracht8();
+            //TestOpdracht10();
+            TestOpdracht11();
         }
         private static void TestOpdracht2()
         {
@@ -68,11 +71,43 @@ namespace Waterskibaan
             }
         }
 
-        ‘private static void TestOpdracht8()
+        private static void TestOpdracht8()
         {
-            Waterskibaan wb = new Waterskibaan();
-            Sporter sp = new Sporter();
-            wb.SporterStart()
+            
+            Sporter s = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            Waterskibaan waterskibaan = new Waterskibaan();
+
+            s.Zwemvest = new Zwemvest();
+            s.Skies = new Skies();
+
+            waterskibaan.SporterStart(s);
+            foreach (var punt in s.Moves)
+            {
+                Console.WriteLine(punt);
+            }
+            Console.WriteLine(s.KledingKleur);
+        }
+
+        private static void TestOpdracht10()
+        {
+            WachtrijInstructie wi = new WachtrijInstructie();
+            wi.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            wi.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            Console.WriteLine(wi);
+        }
+
+        private static void TestOpdracht11()
+        {
+            Game game = new Game();
+            game.Initialize();
+        }
+
+        private static void TestOpdracht12()
+        {
+           /* WachtrijInstructie wi = new WachtrijInstructie();
+            Game game = new Game();
+            game.NieuweBezoeker = wi.SporterNeemPlaatsInRij();
+            game.Initialize();*/
         }
     }
 }

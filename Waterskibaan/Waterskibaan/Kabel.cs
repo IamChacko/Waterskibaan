@@ -62,8 +62,6 @@ namespace Waterskibaan
            
             string sreturn = "";
             
-            
-            s
                 foreach (Lijn lijn in _lijnen)
                 {
                 sreturn += $"{lijn.PositieOpKabel}|";
