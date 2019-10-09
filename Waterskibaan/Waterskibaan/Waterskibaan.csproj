@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
+    <Compile Include="InstructieAfgelopenArgs.cs" />
     <Compile Include="InstructieGroep.cs" />
     <Compile Include="IWachtrij.cs" />
     <Compile Include="Kabel.cs" />

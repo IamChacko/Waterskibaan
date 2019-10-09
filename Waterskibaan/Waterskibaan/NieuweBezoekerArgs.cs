@@ -8,6 +8,11 @@ namespace Waterskibaan
 {
     class NieuweBezoekerArgs
     {
+        public Sporter sp { get; set; }
 
+        public NieuweBezoekerArgs(Sporter sp)
+        {
+            this.sp = sp;
+        }
     }
 }
