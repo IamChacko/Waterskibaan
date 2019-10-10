@@ -27,7 +27,7 @@ namespace Waterskibaan
         public List<Sporter> SportersVerlatenRij(int aantal)
         {
             List<Sporter> spList = new List<Sporter>();
-            for (int i = aantal; i > 0; i++)
+            for (int i = aantal; i > 0; i--)
             {
                 spList.Add(queue.Dequeue());
             }

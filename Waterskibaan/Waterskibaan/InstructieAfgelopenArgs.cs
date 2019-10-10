@@ -14,5 +14,13 @@ namespace Waterskibaan
         {
             this.lijst = lijst;
         }
+
+        public List<Sporter> verplaatsBeschikbareSporters()
+        {
+            List<Sporter> returnLijst = new List<Sporter>();
+            returnLijst = lijst;
+            lijst.Clear();
+            return returnLijst;
+        }
     }
 }

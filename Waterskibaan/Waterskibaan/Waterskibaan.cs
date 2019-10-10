@@ -8,8 +8,8 @@ namespace Waterskibaan
 {
     class Waterskibaan
     {
-        private Kabel kabel = new Kabel();
-        private LijnenVoorraad Lv = new LijnenVoorraad();
+        public Kabel kabel = new Kabel();
+        public LijnenVoorraad Lv = new LijnenVoorraad();
         public void VerplaatsKabel()
         {
             kabel.VerschuifLijnen();

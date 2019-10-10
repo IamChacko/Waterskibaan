@@ -16,7 +16,8 @@ namespace Waterskibaan
             // TestOpdracht5();
             //TestOpdracht8();
             //TestOpdracht10();
-            TestOpdracht11();
+            //TestOpdracht11();
+            TestOpdracht12();
         }
         private static void TestOpdracht2()
         {
@@ -104,10 +105,10 @@ namespace Waterskibaan
 
         private static void TestOpdracht12()
         {
-           /* WachtrijInstructie wi = new WachtrijInstructie();
+            
             Game game = new Game();
-            game.NieuweBezoeker = wi.SporterNeemPlaatsInRij();
-            game.Initialize();*/
+            game._PrintStatus = true;
+            game.Initialize();
         }
     }
 }

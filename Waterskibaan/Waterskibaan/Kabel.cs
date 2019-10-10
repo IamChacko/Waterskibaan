@@ -34,13 +34,14 @@ namespace Waterskibaan
             {
                 if (lijn.PositieOpKabel != 9)
                 {
-                    lijn.PositieOpKabel += 1;
+                    lijn.PositieOpKabel++;
                 }
                 else
                 {
                     lijn.PositieOpKabel = 0;
                     lijn.Sp.AantalRondenNogTeGaan--;
                 }
+                lijn.Sp.DoeMove();
             }
         }
 
