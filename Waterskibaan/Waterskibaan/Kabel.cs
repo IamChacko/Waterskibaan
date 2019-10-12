@@ -2,21 +2,15 @@
 
 namespace Waterskibaan
 {
-    class Kabel
+    public class Kabel
     {
-        private LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
+        public LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
 
         public bool IsStartPositieLeeg()
         {
-            if (_lijnen.Count != 0)
-            {
-                if (_lijnen.First.Value.PositieOpKabel == 0)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+            
+            return  _lijnen.First == null || _lijnen.First.Value.PositieOpKabel != 0;
+        } 
 
         public void NeemLijnInGebruik(Lijn lijn)
         {

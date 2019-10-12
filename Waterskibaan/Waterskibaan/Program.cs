@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace Waterskibaan
 {
@@ -100,15 +101,24 @@ namespace Waterskibaan
         private static void TestOpdracht11()
         {
             Game game = new Game();
-            game.Initialize();
+            //game.Initialize();
         }
 
         private static void TestOpdracht12()
         {
             
+            DispatcherTimer timer = new DispatcherTimer();
             Game game = new Game();
-            game._PrintStatus = true;
-            game.Initialize();
+            game.Initialize(timer);
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            Console.ReadLine();
+        }
+
+        public static void timer_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("ttt");
         }
     }
 }

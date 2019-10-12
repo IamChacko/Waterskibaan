@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    interface IMoves
-    {
+    public interface IMoves
+    {   
         int Move();
         
     }

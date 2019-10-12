@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Waterskibaan
 {
-    class Sporter
+    public class Sporter
     {
         Random r = new Random();
 

@@ -5,51 +5,46 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Timers;
+using System.Windows;
 
+using System.Windows.Threading;
 
 namespace Waterskibaan
 {
-    class Game
+    public class Game
     {
         public bool _PrintStatus = false;
         public delegate void NieuweBezoekerHandler(NieuweBezoekerArgs args);
         public delegate void InstructieAfgelopenHandler(InstructieAfgelopenArgs args);
         public delegate void LijnenVerplaatst();
 
-        private static System.Timers.Timer aTimer;
         private int counter = 0;
 
-        WachtrijInstructie wi = new WachtrijInstructie();
-        WachtrijStarten ws = new WachtrijStarten();
-        InstructieGroep ig = new InstructieGroep();
+        public WachtrijInstructie wi = new WachtrijInstructie();
+        public WachtrijStarten ws = new WachtrijStarten();
+        public InstructieGroep ig = new InstructieGroep();
         
         public event NieuweBezoekerHandler NieuweBezoeker;
         public event InstructieAfgelopenHandler instructieAfgelopen;
         public event LijnenVerplaatst _LijnenVerplaatst;
-        public static Waterskibaan wbaan = new Waterskibaan();
+        public Waterskibaan wbaan = new Waterskibaan();
 
-        public void Initialize()
+        public void Initialize(DispatcherTimer timer)
         {
-            SetTimer();
-            Console.WriteLine("Start spel");
+
             NieuweBezoeker += Wachtrijinstructie;
             instructieAfgelopen += Instructieaa;
             _LijnenVerplaatst += WBLijnenVerplaatst;
-            Console.ReadLine();
-            aTimer.Stop();
-            aTimer.Dispose();
+
+            timer.Tick += OnTimedEvent;
+            
             
         }
-        private  void SetTimer()
-        {
-            aTimer = new System.Timers.Timer(1000);
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-        }
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        
+        private void OnTimedEvent(object source, EventArgs e)
         {
             counter++;
+           
             if (counter % 3 == 0)
             {
                 NieuweBezoeker.Invoke(new NieuweBezoekerArgs(new Sporter(MoveCollection.GetWillekeurigeMoves())));
@@ -65,6 +60,7 @@ namespace Waterskibaan
             {
                 _LijnenVerplaatst.Invoke();
             }
+            Console.WriteLine($"Kabel: {wbaan.kabel}");
             
 
 
@@ -92,6 +88,8 @@ namespace Waterskibaan
 
         public void WBLijnenVerplaatst()
         {
+            wbaan.VerplaatsKabel();
+            if (ws.GetAlleSporters().Count == 0) { return; }
             if (wbaan.kabel.IsStartPositieLeeg())
             {
                 List<Sporter> Sporterstart = ws.SportersVerlatenRij(1);
@@ -103,8 +101,9 @@ namespace Waterskibaan
                 }
             }
 
-            wbaan.VerplaatsKabel(); 
+            
         }
+        
         public void PrintStatus()
         {
             if (_PrintStatus)

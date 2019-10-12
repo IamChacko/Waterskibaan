@@ -8,11 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF414144">
         <Canvas HorizontalAlignment="Left" Height="197" Margin="35,34,0,0" VerticalAlignment="Top" Width="306" Background="#FF5C5A61"/>
-        <ListBox x:Name="WI_Listbox" HorizontalAlignment="Left" Height="159" Margin="35,250,0,0" VerticalAlignment="Top" Width="100" Background="#FF444555">
-            <ListBox.Effect>
-                <BlurEffect/>
-            </ListBox.Effect>
-        </ListBox>
+        <ListBox x:Name="WI_Listbox" HorizontalAlignment="Left" Height="159" Margin="35,250,0,0" VerticalAlignment="Top" Width="100" Background="#FF444555"/>
 
     </Grid>
 </Window>
