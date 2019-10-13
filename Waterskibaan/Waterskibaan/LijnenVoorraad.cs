@@ -11,15 +11,17 @@ namespace Waterskibaan
         private Queue<Lijn> _lijnen = new Queue<Lijn>();
         public void LijnToevoegenAanRij(Lijn lijn)
         {
-           _lijnen.Enqueue(lijn); 
+            if (lijn != null)
+            {
+                _lijnen.Enqueue(lijn);
+            }
         }
 
         public Lijn VerwijderEersteLijn()
         {
             if (GetAantalLijnen() != 0)
             {
-                _lijnen.Dequeue();
-                return _lijnen.First();
+                return _lijnen.Dequeue();
             } else
             {
                 return null;
@@ -28,7 +30,8 @@ namespace Waterskibaan
 
         public int GetAantalLijnen()
         {
-            return _lijnen.Count();
+                return _lijnen.Count();
+            
         }
 
         public override string ToString()

@@ -24,29 +24,42 @@ namespace Waterskibaan
 
         public void VerschuifLijnen()
         {
+            Lijn lijnswitch = null;
             foreach (Lijn lijn in _lijnen)
             {
-                if (lijn.PositieOpKabel != 9)
+                if (lijn.PositieOpKabel == 9)
                 {
-                    lijn.PositieOpKabel++;
+                    lijnswitch = lijn;
                 }
                 else
                 {
-                    lijn.PositieOpKabel = 0;
-                    lijn.Sp.AantalRondenNogTeGaan--;
+                    lijn.PositieOpKabel++;
+                    lijn.Sp.DoeMove();
                 }
-                lijn.Sp.DoeMove();
             }
+            if (lijnswitch != null)
+            {
+                lijnswitch.PositieOpKabel = 0;
+                _lijnen.Remove(lijnswitch);
+                _lijnen.AddFirst(lijnswitch);
+                if (lijnswitch.Sp.AantalRondenNogTeGaan == 1)
+                {
+                    return;
+                }
+                lijnswitch.Sp.AantalRondenNogTeGaan--;
+            }
+            
+            
         }
 
         public Lijn VerwijderLijnVanKabel()
         {
             foreach (Lijn lijn in _lijnen) 
             {
-               if (lijn.PositieOpKabel == 9 && lijn.Sp.AantalRondenNogTeGaan == 1)
+               if (lijn.PositieOpKabel == 9 && lijn.Sp.AantalRondenNogTeGaan <= 1)
                 {
                     _lijnen.RemoveLast();
-                    return lijn;
+                    return _lijnen.Last.Value;
                 }
             }
             return null;

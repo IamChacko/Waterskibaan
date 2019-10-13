@@ -45,18 +45,18 @@ namespace Waterskibaan
         {
             counter++;
            
-            if (counter % 3 == 0)
+            if (counter % 30 == 0)
             {
                 NieuweBezoeker.Invoke(new NieuweBezoekerArgs(new Sporter(MoveCollection.GetWillekeurigeMoves())));
                 PrintStatus(); // Voor TestOpdracht12();
             }
-            if (counter % 20 == 0)
+            if (counter % 200 == 0)
             {
                 int aantal = wi.GetAlleSporters().Count > 5 ? 5 : wi.GetAlleSporters().Count;
                 List<Sporter> splijst = wi.SportersVerlatenRij(aantal);
                 instructieAfgelopen.Invoke(new InstructieAfgelopenArgs(splijst));
             }
-            if (counter % 4 == 0)
+            if (counter % 40 == 0)
             {
                 _LijnenVerplaatst.Invoke();
             }
@@ -92,13 +92,12 @@ namespace Waterskibaan
             if (ws.GetAlleSporters().Count == 0) { return; }
             if (wbaan.kabel.IsStartPositieLeeg())
             {
-                List<Sporter> Sporterstart = ws.SportersVerlatenRij(1);
-                foreach (Sporter sp in Sporterstart)
-                {
-                    sp.Skies = new Skies();
-                    sp.Zwemvest = new Zwemvest();
-                    wbaan.SporterStart(sp);
-                }
+                Sporter spStart =  ws.SportersVerlatenRij(1)[0];
+
+                spStart.Skies = new Skies();
+                spStart.Zwemvest = new Zwemvest();
+                wbaan.SporterStart(spStart);
+                
             }
 
             

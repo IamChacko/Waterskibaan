@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WaterskibaanWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="457.5" Width="800">
     <Grid Background="#FF414144">
-        <Canvas HorizontalAlignment="Left" Height="197" Margin="35,34,0,0" VerticalAlignment="Top" Width="306" Background="#FF5C5A61"/>
-        <ListBox x:Name="WI_Listbox" HorizontalAlignment="Left" Height="159" Margin="35,250,0,0" VerticalAlignment="Top" Width="100" Background="#FF444555"/>
+        <Canvas x:Name="CV_lijnen" HorizontalAlignment="Left" Height="205" Margin="35,10,0,0" VerticalAlignment="Top" Width="306" Background="#FF5C5A61"/>
+        <ListBox x:Name="WI_Listbox" HorizontalAlignment="Left" Height="159" Margin="35,250,0,0" VerticalAlignment="Top" Width="79" Background="#FF444555" BorderBrush="#FF444C66"/>
+        <ListBox x:Name="IG_Listbox" HorizontalAlignment="Left" Height="159" Margin="147,250,0,0" VerticalAlignment="Top" Width="80" Background="#FF444555" BorderBrush="#FF444C66"/>
+        <ListBox x:Name="WS_Listbox" HorizontalAlignment="Left" Height="159" Margin="262,250,0,0" VerticalAlignment="Top" Width="79"  Background="#FF444555" BorderBrush="#FF444C66"/>
 
     </Grid>
 </Window>
