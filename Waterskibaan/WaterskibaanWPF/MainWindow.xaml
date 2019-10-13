@@ -6,11 +6,31 @@
         xmlns:local="clr-namespace:WaterskibaanWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="457.5" Width="800">
-    <Grid Background="#FF414144">
-        <Canvas x:Name="CV_lijnen" HorizontalAlignment="Left" Height="205" Margin="35,10,0,0" VerticalAlignment="Top" Width="306" Background="#FF5C5A61"/>
-        <ListBox x:Name="WI_Listbox" HorizontalAlignment="Left" Height="159" Margin="35,250,0,0" VerticalAlignment="Top" Width="79" Background="#FF444555" BorderBrush="#FF444C66"/>
-        <ListBox x:Name="IG_Listbox" HorizontalAlignment="Left" Height="159" Margin="147,250,0,0" VerticalAlignment="Top" Width="80" Background="#FF444555" BorderBrush="#FF444C66"/>
-        <ListBox x:Name="WS_Listbox" HorizontalAlignment="Left" Height="159" Margin="262,250,0,0" VerticalAlignment="Top" Width="79"  Background="#FF444555" BorderBrush="#FF444C66"/>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF2F2F32" Offset="1"/>
+                <GradientStop Color="#FF414144"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="261*"/>
+            <RowDefinition Height="166*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="540*"/>
+            <ColumnDefinition Width="156*"/>
+            <ColumnDefinition Width="87*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="CV_lijnen" HorizontalAlignment="Left" Height="205" Margin="26,10,0,0" VerticalAlignment="Top" Width="444" Background="#FF5C5A61" Grid.Column="1"/>
+        <ListBox x:Name="WI_Listbox" HorizontalAlignment="Left" Height="159" Margin="26,250,0,0" VerticalAlignment="Top" Width="78" Background="#FF444555" BorderBrush="#FF444C66" Grid.Column="1" FontSize="11" Grid.RowSpan="2"/>
+        <ListBox x:Name="IG_Listbox" HorizontalAlignment="Left" Height="159" Margin="138,250,0,0" VerticalAlignment="Top" Width="80" Background="#FF444555" BorderBrush="#FF444C66" Grid.Column="1" Grid.RowSpan="2"/>
+        <ListBox x:Name="WS_Listbox" HorizontalAlignment="Left" Height="159" Margin="252,250,0,0" VerticalAlignment="Top" Width="80"  Background="#FF444555" BorderBrush="#FF444C66" Grid.Column="1" Grid.RowSpan="2"/>
+        <ProgressBar x:Name="PB_Wi" HorizontalAlignment="Left" Height="8" Margin="26,237,0,0" VerticalAlignment="Top" Width="78" Maximum="30" Foreground="#FF383B4D" BorderBrush="#FF404040" Background="#FF6C6B78" Grid.Column="1"/>
+        <ProgressBar x:Name="PB_Ig" HorizontalAlignment="Left" Height="8" Margin="138,237,0,0" VerticalAlignment="Top" Width="78" Maximum="200" Foreground="#FF383B4D" BorderBrush="#FF404040" Background="#FF6C6B78" Visibility="Hidden" Grid.Column="1"/>
+        <ProgressBar x:Name="PB_Ws" HorizontalAlignment="Left" Height="8" Margin="252,237,0,0" VerticalAlignment="Top" Width="80" Maximum="40" Foreground="#FF383B4D" BorderBrush="#FF404040" Background="#FF6C6B78" Visibility="Hidden" Grid.Column="1"/>
+        <Grid Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Height="427" Margin="489,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="293" Background="#FF2F2F3A" Opacity="0.9"/>
 
     </Grid>
 </Window>

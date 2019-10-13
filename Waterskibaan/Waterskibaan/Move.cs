@@ -18,6 +18,10 @@ namespace Waterskibaan
             }
             return 0; ;
         }
+        public override string ToString()
+        {
+            return $"Een been";
+        }
     }
 
     public class EenHand : IMoves
@@ -31,6 +35,10 @@ namespace Waterskibaan
                 return 75;
             }
             return 0; ;
+        }
+        public override string ToString()
+        {
+            return $"Een hand";
         }
     }
 
@@ -46,6 +54,10 @@ namespace Waterskibaan
             }
             return 0; ;
         }
+        public override string ToString()
+        {
+            return $"Jump";
+        }
     }
     public class Bewegen : IMoves
     {
@@ -58,6 +70,10 @@ namespace Waterskibaan
                 return 100;
             }
             return 0; ;
+        }
+        public override string ToString()
+        {
+            return $"Draai";
         }
     }
 }

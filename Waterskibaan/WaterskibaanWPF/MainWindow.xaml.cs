@@ -49,6 +49,7 @@ namespace WaterskibaanWPF
             DrawInstructieGroep();
             DrawWachtrijStarten();
             DrawLijnen();
+            PB_vullen();
         }
 
         public void DrawWachtrijInstructie()
@@ -74,6 +75,39 @@ namespace WaterskibaanWPF
             {
                WS_Listbox.Items.Add($"Sporter #{sp.SporterID}");
             }
+        }
+        public void PB_vullen() // Elke 1s = 10 bij value
+        {
+            if (game.ig.GetAlleSporters().Count > 0)
+            {
+                PB_Ig.Visibility = Visibility.Visible;
+            } else
+            {
+                PB_Ig.Visibility = Visibility.Hidden;
+            }
+            if (game.ws.GetAlleSporters().Count > 0)
+            {
+                PB_Ws.Visibility = Visibility.Visible;
+            } else
+            {
+                PB_Ws.Visibility = Visibility.Hidden;
+            }
+
+            if (PB_Wi.Value == 30)
+            {
+                PB_Wi.Value = 0;
+            }
+            if (PB_Ig.Value == 200)
+            {
+                PB_Ig.Value = 0;
+            }
+            if (PB_Ws.Value == 40)
+            {
+                PB_Ws.Value = 0;
+            }
+            PB_Wi.Value++;
+            PB_Ig.Value++;
+            PB_Ws.Value++;
         }
 
         public void DrawLijnen()
@@ -101,6 +135,11 @@ namespace WaterskibaanWPF
                     Canvas.SetLeft(tb, CV_X1-20);
                     Canvas.SetTop(tb, CV_Y2-13);
                     CV_lijnen.Children.Add(tb);
+                    Label sttb = new Label();
+                    Canvas.SetLeft(sttb, CV_X2);
+                    Canvas.SetTop(sttb, CV_Y2 - 13);
+                    sttb.Content = $"Sporter#{lijn.Sp.SporterID} : {lijn.Sp.HuidigeMove}";
+                    CV_lijnen.Children.Add(sttb);
                     CV_Y1 += 20;
                     CV_Y2 += 20;
                 }
