@@ -169,7 +169,7 @@ namespace WaterskibaanWPF
             int CV_X1 = 20;// Fixed
             int CV_Y1 = 10;
             int CV_X2 = 290;// Fixed
-            int CV_Y2 = 10;
+            int CV_Y2 = 10; // fixed voor verticale lijn
             if (game.wbaan.kabel._lijnen.Count > 0)
             {
                 foreach (Lijn lijn in game.wbaan.kabel._lijnen)
