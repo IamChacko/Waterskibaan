@@ -8,11 +8,11 @@ namespace Waterskibaan
 {
     public class EenBeen : IMoves
     {
+        public string naam = "Een been";
         Random r = new Random();
         public int Move()
         {
-            r.Next(2);
-            if (r.Equals(1))
+            if (r.Next(2) == 1)
             {
                 return 50;
             }
@@ -26,11 +26,11 @@ namespace Waterskibaan
 
     public class EenHand : IMoves
     {
+        public string naam = "Een hand";
         Random r = new Random();
         public int Move()
         {
-            r.Next(2);
-            if (r.Equals(1))
+            if (r.Next(2) == 1)
             {
                 return 75;
             }
@@ -44,11 +44,11 @@ namespace Waterskibaan
 
     public class Jump : IMoves
     {
+        public string naam = "Jump";
         Random r = new Random();
         public int Move()
         {
-            r.Next(2);
-            if (r.Equals(1))
+            if (r.Next(2) == 1)
             {
                 return 150;
             }
@@ -61,11 +61,11 @@ namespace Waterskibaan
     }
     public class Bewegen : IMoves
     {
+        public string naam = "Draai";
         Random r = new Random();
         public int Move()
         {
-            r.Next(2);
-            if (r.Equals(1))
+            if (r.Next(2) == 1)
             {
                 return 100;
             }

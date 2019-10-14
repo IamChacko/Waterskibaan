@@ -52,6 +52,33 @@ namespace WaterskibaanWPF
             DrawLijnen();
             PB_vullen();
             Update_Lijnenvooraad();
+            Loggerupdate();
+            DrawLichsteSpelers();
+            UniekeMoves();
+        }
+        public void DrawLichsteSpelers()
+        {
+            SP_lichstekleur.Children.Clear();
+            foreach (Sporter sp in game._logger.getLichsteSporters())
+            {
+                Label lb = new Label();
+                lb.Content = $"Sporter#{sp.SporterID}";
+                lb.Foreground = new SolidColorBrush(Color.FromArgb(sp.KledingKleur.A, sp.KledingKleur.R, sp.KledingKleur.G, sp.KledingKleur.B));
+                SP_lichstekleur.Children.Add(lb);
+            }
+        }
+
+        public void UniekeMoves()
+        {
+            SP_uniekiemoves.Children.Clear();
+            foreach(IMoves move in game._logger.Uniekemoves())
+            {
+                Label lb = new Label();
+                lb.Content = $"{move}";
+                lb.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));
+                SP_uniekiemoves.Children.Add(lb);
+
+            }
         }
 
         public void DrawWachtrijInstructie()
@@ -118,6 +145,24 @@ namespace WaterskibaanWPF
 
         }
 
+
+        public void Loggerupdate()
+        {
+            LB_bezoekers.Content = game._logger.AantalBezoekers();
+            Sporter sp = game._logger.Highscore();
+            if (sp != null && sp.BehaaldePunten != 0)
+            {
+                IMG_beker.Visibility = Visibility.Visible;
+                LB_winaarsporter.Content = $"Sporter#{sp.SporterID}";
+                LB_winaarsporter.Foreground = new SolidColorBrush(Color.FromArgb(sp.KledingKleur.A, sp.KledingKleur.R, sp.KledingKleur.G, sp.KledingKleur.B));
+                LB_scorehighscore.Content = sp.BehaaldePunten;
+            }
+            LB_rodeshirts.Content = game._logger.Rodeshirts;
+            LB_totrondes.Content = game._logger.TotaleRondes();
+
+
+        }
+
         public void DrawLijnen()
         {
             CV_lijnen.Children.Clear();
@@ -142,11 +187,14 @@ namespace WaterskibaanWPF
                     tb.Content = $"{lijn.Sp.AantalRondenNogTeGaan}";
                     Canvas.SetLeft(tb, CV_X1-20);
                     Canvas.SetTop(tb, CV_Y2-13);
+                    tb.Foreground = new SolidColorBrush(Colors.White);
                     CV_lijnen.Children.Add(tb);
                     Label sttb = new Label();
                     Canvas.SetLeft(sttb, CV_X2);
                     Canvas.SetTop(sttb, CV_Y2 - 13);
-                    sttb.Content = $"#{lijn.Sp.SporterID} : {lijn.Sp.HuidigeMove}";
+                    sttb.Content = $"#{lijn.Sp.SporterID}";
+                    SPkabelInformatie(CV_X2, CV_Y2, CV_lijnen, lijn);
+                    sttb.Foreground = new SolidColorBrush(Colors.White);
                     CV_lijnen.Children.Add(sttb);
                     CV_Y1 += 20;
                     CV_Y2 += 20;
@@ -154,6 +202,29 @@ namespace WaterskibaanWPF
             }
         }
 
+        public void SPkabelInformatie(int x2, int y2, Canvas cv, Lijn lijn)
+        {
+            Line Scheidingslein = new Line();
+            Label st_score = new Label();
+            Label st_move = new Label();
+            Scheidingslein.Stroke = new SolidColorBrush(Color.FromRgb(150,150,150));
+            Scheidingslein.X1 = x2 + 35;
+            Scheidingslein.X2 = x2 + 35;
+            Scheidingslein.Y1 = 0;
+            Scheidingslein.Y2 = 205;
+            Scheidingslein.StrokeThickness = 2;
+            Canvas.SetLeft(st_score, x2+40);
+            Canvas.SetTop(st_score, y2 - 13);
+            Canvas.SetLeft(st_move, x2 + 70);
+            Canvas.SetTop(st_move, y2 - 13);
+            st_score.Content = lijn.Sp.BehaaldePunten;
+            st_move.Content = lijn.Sp.HuidigeMove;
+            st_score.Foreground = new SolidColorBrush(Colors.White);
+            st_move.Foreground = new SolidColorBrush(Colors.White);
+            if (lijn.Sp.BehaaldePunten > 0) { cv.Children.Add(st_score); }
+            cv.Children.Add(st_move);
+           // cv.Children.Add(Scheidingslein);
+        }
         private void WI_Listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

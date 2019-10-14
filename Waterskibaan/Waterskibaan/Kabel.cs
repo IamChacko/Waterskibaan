@@ -14,7 +14,7 @@ namespace Waterskibaan
 
         public void NeemLijnInGebruik(Lijn lijn)
         {
-            if (IsStartPositieLeeg())
+            if (IsStartPositieLeeg() && _lijnen.Count < 10)
             {
                 lijn.PositieOpKabel = 0;
                 _lijnen.AddFirst(lijn);
@@ -47,6 +47,8 @@ namespace Waterskibaan
                     return;
                 }
                 lijnswitch.Sp.AantalRondenNogTeGaan--;
+
+                lijnswitch.Sp.AantalRondenGedaan++;
             }
             
             
@@ -58,6 +60,7 @@ namespace Waterskibaan
             {
                if (lijn.PositieOpKabel == 9 && lijn.Sp.AantalRondenNogTeGaan <= 1)
                 {
+                    lijn.Sp.AantalRondenGedaan++;
                     _lijnen.RemoveLast();
                     return _lijnen.Last.Value;
                 }

@@ -33,7 +33,22 @@
         <Grid Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Height="427" Margin="489,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="293" Background="#FF2F2F3A" Opacity="0.9">
             <Label Content="Lijnenvooraad:" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFF3F3F3" FontSize="17"/>
             <Label x:Name="LB_Lijnenvooraad" Content="0" HorizontalAlignment="Left" Margin="127,22,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFF3F3F3" FontSize="17"/>
+            <Grid HorizontalAlignment="Left" Height="353" Margin="0,74,0,0" VerticalAlignment="Top" Width="293" Background="#FF444451">
+                <Label Content="Bezoekers:&#xD;&#xA;" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="66" Height="28"/>
+                <Label x:Name="LB_bezoekers" Content="0&#xA;" HorizontalAlignment="Right" Margin="0,10,181,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="44" Height="28"/>
+                <Image x:Name="IMG_beker" HorizontalAlignment="Left" Height="60" Margin="141,10,0,0" VerticalAlignment="Top" Width="93" Source="Image2.png" Stretch="Fill" Visibility="Hidden"/>
+                <Label x:Name="LB_winaarsporter" Content="" HorizontalAlignment="Left" Margin="217,10,0,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="66" Height="28"/>
+                <Label x:Name="LB_scorehighscore" Content="" HorizontalAlignment="Left" Margin="217,38,0,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="66" Height="28"/>
+                <Label Content="&#xD;&#xA;X&#xA;" HorizontalAlignment="Left" Margin="209,75,0,0" VerticalAlignment="Top" Foreground="#FF6F798D" Width="25" Height="68" FontSize="22" FontFamily="Verdana"/>
+                <Label x:Name="LB_rodeshirts" Content="0&#xD;&#xA;" HorizontalAlignment="Left" Margin="239,102,-34,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="88" Height="42" FontSize="20"/>
+                <Label Content="Totale rondes:&#xA;" HorizontalAlignment="Left" Margin="2,38,0,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="85" Height="28"/>
+                <Label x:Name="LB_totrondes" Content="0&#xA;" HorizontalAlignment="Left" Margin="87,38,0,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="85" Height="28"/>
+                <StackPanel x:Name="SP_lichstekleur" HorizontalAlignment="Left" Height="259" Margin="10,75,0,0" VerticalAlignment="Top" Width="123" Background="#FF666478"/>
+            </Grid>
         </Grid>
+        <Image Grid.Column="2" HorizontalAlignment="Left" Height="49" Margin="114,176,0,0" VerticalAlignment="Top" Width="42" Source="shirt.png" RenderTransformOrigin="0.5,-0.093"/>
+        <StackPanel x:Name="SP_uniekiemoves" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Left" Height="112" Margin="114,25,0,0" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="112,92,55,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.Row="1"/>
 
     </Grid>
 </Window>

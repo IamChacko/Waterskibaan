@@ -14,6 +14,7 @@ namespace Waterskibaan
         public int AantalRondenNogTeGaan { get; set; }
         private static int _SporterID = 0;
         public int SporterID;
+        public int AantalRondenGedaan;
         public Zwemvest Zwemvest { get; set; }
         public Skies Skies { get; set; }
         public Color KledingKleur { get; set; }
@@ -27,7 +28,7 @@ namespace Waterskibaan
             AantalRondenNogTeGaan = r.Next(1,3);
             _SporterID++;
             SporterID = _SporterID;
-            KledingKleur = Color.FromArgb((byte)r.Next(255), (byte)r.Next(255), (byte)r.Next(255));
+            KledingKleur = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), r.Next(0, 256));
         }
 
         public void DoeMove()
@@ -36,7 +37,11 @@ namespace Waterskibaan
             {
                 int index = r.Next(Moves.Count);
                 HuidigeMove = Moves[index];
+                BehaaldePunten += Moves[index].Move();
+                return;
             }
+            HuidigeMove = null;
+            
         }
 
 

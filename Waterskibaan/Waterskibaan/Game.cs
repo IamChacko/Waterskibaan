@@ -28,6 +28,7 @@ namespace Waterskibaan
         public event InstructieAfgelopenHandler instructieAfgelopen;
         public event LijnenVerplaatst _LijnenVerplaatst;
         public Waterskibaan wbaan = new Waterskibaan();
+        public Logger _logger = new Logger();
 
         public void Initialize(DispatcherTimer timer)
         {
@@ -35,7 +36,7 @@ namespace Waterskibaan
             NieuweBezoeker += Wachtrijinstructie;
             instructieAfgelopen += Instructieaa;
             _LijnenVerplaatst += WBLijnenVerplaatst;
-
+            _logger.kabel = wbaan.kabel;
             timer.Tick += OnTimedEvent;
             
             
@@ -68,6 +69,7 @@ namespace Waterskibaan
         public void Wachtrijinstructie(NieuweBezoekerArgs nba)
         {
             wi.SporterNeemPlaatsInRij(nba.sp);
+            _logger.VoegBezoekerToe(nba.sp);
         }
         public void Instructieaa(InstructieAfgelopenArgs iaa)
         {
