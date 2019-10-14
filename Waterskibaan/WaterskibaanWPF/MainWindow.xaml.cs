@@ -1,4 +1,5 @@
 ﻿using System;
+/*Using SysTEm.F*/
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,7 @@ namespace WaterskibaanWPF
             DrawWachtrijStarten();
             DrawLijnen();
             PB_vullen();
+            Update_Lijnenvooraad();
         }
 
         public void DrawWachtrijInstructie()
@@ -110,6 +112,12 @@ namespace WaterskibaanWPF
             PB_Ws.Value++;
         }
 
+        public void Update_Lijnenvooraad()
+        {
+            LB_Lijnenvooraad.Content = game.wbaan.Lv.GetAantalLijnen();
+
+        }
+
         public void DrawLijnen()
         {
             CV_lijnen.Children.Clear();
@@ -138,12 +146,17 @@ namespace WaterskibaanWPF
                     Label sttb = new Label();
                     Canvas.SetLeft(sttb, CV_X2);
                     Canvas.SetTop(sttb, CV_Y2 - 13);
-                    sttb.Content = $"Sporter#{lijn.Sp.SporterID} : {lijn.Sp.HuidigeMove}";
+                    sttb.Content = $"#{lijn.Sp.SporterID} : {lijn.Sp.HuidigeMove}";
                     CV_lijnen.Children.Add(sttb);
                     CV_Y1 += 20;
                     CV_Y2 += 20;
                 }
             }
+        }
+
+        private void WI_Listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
