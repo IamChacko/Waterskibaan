@@ -18,6 +18,10 @@ namespace Waterskibaan
             }
             return 0; ;
         }
+        public string Naam()
+        {
+            return naam;
+        }
         public override string ToString()
         {
             return $"Een been";
@@ -35,6 +39,10 @@ namespace Waterskibaan
                 return 75;
             }
             return 0; ;
+        }
+        public string Naam()
+        {
+            return naam;
         }
         public override string ToString()
         {
@@ -54,6 +62,10 @@ namespace Waterskibaan
             }
             return 0; ;
         }
+        public string Naam()
+        {
+            return naam;
+        }
         public override string ToString()
         {
             return $"Jump";
@@ -71,10 +83,15 @@ namespace Waterskibaan
             }
             return 0; ;
         }
+        public string Naam()
+        {
+            return naam;
+        }
         public override string ToString()
         {
             return $"Draai";
         }
+
     }
 }
 

@@ -64,9 +64,9 @@ namespace Waterskibaan
             return lijst;
         }
 
-        public List<IMoves> Uniekemoves()
+        public List<string> Uniekemoves()
         {
-            var uniek = (from item in Lijst where item.HuidigeMove != null select item.HuidigeMove).Distinct().ToList() ;
+            var uniek = (from item in kabel._lijnen where item.Sp.HuidigeMove != null select item.Sp.HuidigeMove.Naam()).Distinct().ToList() ;
             return uniek;
         }
         

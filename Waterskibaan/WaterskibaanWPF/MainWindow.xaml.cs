@@ -71,7 +71,7 @@ namespace WaterskibaanWPF
         public void UniekeMoves()
         {
             SP_uniekiemoves.Children.Clear();
-            foreach(IMoves move in game._logger.Uniekemoves())
+            foreach(string move in game._logger.Uniekemoves())
             {
                 Label lb = new Label();
                 lb.Content = $"{move}";
