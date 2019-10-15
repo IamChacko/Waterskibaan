@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WaterskibaanWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="457.5" Width="800">
-    <Grid>
+    <Grid x:Name="Gridmain">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                 <GradientStop Color="#FF2F2F32" Offset="1"/>
@@ -26,14 +26,14 @@
         <Canvas x:Name="CV_lijnen" HorizontalAlignment="Left" Height="205" Margin="26,10,0,0" VerticalAlignment="Top" Width="444" Background="#FF5C5A61" Grid.Column="1"/>
         <ListBox x:Name="WI_Listbox" HorizontalAlignment="Left" Height="159" Margin="26,250,0,0" VerticalAlignment="Top" Width="90" Background="#FF444555" BorderBrush="#FF444C66" Grid.Column="1" FontSize="11" Grid.RowSpan="2" Foreground="#FFC5C5C5" SelectionChanged="WI_Listbox_SelectionChanged"/>
         <ListBox x:Name="IG_Listbox" HorizontalAlignment="Left" Height="159" Margin="138,250,0,0" VerticalAlignment="Top" Width="90" Background="#FF444555" BorderBrush="#FF444C66" Grid.Column="1" FontSize="11" Grid.RowSpan="2" Foreground="#FFC5C5C5"/>
-        <ListBox x:Name="WS_Listbox" HorizontalAlignment="Left" Height="159" Margin="252,250,0,0" VerticalAlignment="Top" Width="90"  Background="#FF444555" BorderBrush="#FF444C66" Grid.Column="1" FontSize="11" Grid.RowSpan="2" Foreground="#FFC5C5C5"/>
+        <ListBox x:Name="WS_Listbox" HorizontalAlignment="Left" Height="159" Margin="252,250,0,0" VerticalAlignment="Top" Width="90"  Background="#FF444F55" BorderBrush="#FF444C66" Grid.Column="1" FontSize="11" Grid.RowSpan="2" Foreground="#FFC5C5C5"/>
         <ProgressBar x:Name="PB_Wi" HorizontalAlignment="Left" Height="8" Margin="26,237,0,0" VerticalAlignment="Top" Width="90" Maximum="30" Foreground="#FF383B4D" BorderBrush="#FF404040" Background="#FF6C6B78" Grid.Column="1"/>
         <ProgressBar x:Name="PB_Ig" HorizontalAlignment="Left" Height="8" Margin="138,237,0,0" VerticalAlignment="Top" Width="90" Maximum="200" Foreground="#FF383B4D" BorderBrush="#FF404040" Background="#FF6C6B78" Visibility="Hidden" Grid.Column="1"/>
         <ProgressBar x:Name="PB_Ws" HorizontalAlignment="Left" Height="8" Margin="252,237,0,0" VerticalAlignment="Top" Width="90" Maximum="40" Foreground="#FF383B4D" BorderBrush="#FF404040" Background="#FF6C6B78" Visibility="Hidden" Grid.Column="1"/>
         <Grid Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Height="427" Margin="489,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="293" Background="#FF2F2F3A" Opacity="0.9">
             <Label Content="Lijnenvooraad:" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFF3F3F3" FontSize="17"/>
             <Label x:Name="LB_Lijnenvooraad" Content="0" HorizontalAlignment="Left" Margin="127,22,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFF3F3F3" FontSize="17"/>
-            <Grid HorizontalAlignment="Left" Height="353" Margin="0,74,0,0" VerticalAlignment="Top" Width="293" Background="#FF444451">
+            <Grid x:Name="gr_logger" HorizontalAlignment="Left" Height="353" Margin="0,74,0,0" VerticalAlignment="Top" Width="293" Background="#FF444451">
                 <Label Content="Bezoekers:&#xD;&#xA;" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="66" Height="28"/>
                 <Label x:Name="LB_bezoekers" Content="0&#xA;" HorizontalAlignment="Right" Margin="0,10,181,0" VerticalAlignment="Top" Foreground="#FFE1E1E1" Width="44" Height="28"/>
                 <Image x:Name="IMG_beker" HorizontalAlignment="Left" Height="60" Margin="141,10,0,0" VerticalAlignment="Top" Width="93" Source="Image2.png" Stretch="Fill" Visibility="Hidden"/>
@@ -46,6 +46,7 @@
                 <StackPanel x:Name="SP_lichstekleur" HorizontalAlignment="Left" Height="259" Margin="10,75,0,0" VerticalAlignment="Top" Width="123" Background="#FF666478"/>
             </Grid>
             <Slider x:Name="SD_timer" HorizontalAlignment="Left" Margin="218,30,0,0" VerticalAlignment="Top" Height="44" Width="65" ValueChanged="Slider_ValueChanged" Minimum="1" BorderBrush="{x:Null}" Foreground="{x:Null}" Value="10" IsDirectionReversed="True"/>
+            <CheckBox x:Name="CB_Checkbox" Content="" HorizontalAlignment="Left" Margin="166,31,0,0" VerticalAlignment="Top" Checked="CB_Checkbox_Checked"/>
         </Grid>
         <Image Grid.Column="2" HorizontalAlignment="Left" Height="49" Margin="114,176,0,0" VerticalAlignment="Top" Width="42" Source="shirt.png" RenderTransformOrigin="0.5,-0.093"/>
         <StackPanel x:Name="SP_uniekiemoves" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Left" Height="112" Margin="114,25,0,0" VerticalAlignment="Top" Width="119" Grid.Row="1"/>

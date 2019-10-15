@@ -55,6 +55,7 @@ namespace WaterskibaanWPF
             Loggerupdate();
             DrawLichsteSpelers();
             UniekeMoves();
+            Unchecked();
         }
         public void DrawLichsteSpelers()
         {
@@ -95,6 +96,24 @@ namespace WaterskibaanWPF
             foreach (Sporter sp in game.ig.GetAlleSporters())
             {
                 IG_Listbox.Items.Add($"Sporter #{sp.SporterID}");
+            }
+        }
+        public void Unchecked()
+        {
+            if (CB_Checkbox.IsChecked == false)
+            {
+                Gridmain.Background = new SolidColorBrush(Color.FromRgb(65, 65, 68));
+                WI_Listbox.Background = new SolidColorBrush(Color.FromRgb(68, 69, 85));
+                IG_Listbox.Background = new SolidColorBrush(Color.FromRgb(68, 69, 85));
+                WS_Listbox.Background = new SolidColorBrush(Color.FromRgb(68, 69, 85));
+                WI_Listbox.Foreground = new SolidColorBrush(Color.FromRgb(197,197,197));
+                IG_Listbox.Foreground = new SolidColorBrush(Color.FromRgb(197, 197, 197));
+                WS_Listbox.Foreground = new SolidColorBrush(Color.FromRgb(197, 197, 197));
+                CV_lijnen.Background = new SolidColorBrush(Color.FromRgb(92, 90, 97));
+
+                gr_logger.Background = new SolidColorBrush(Color.FromRgb(86, 86, 81));
+
+                SP_lichstekleur.Background = new SolidColorBrush(Color.FromRgb(102, 100, 120));
             }
         }
         public void DrawWachtrijStarten()
@@ -233,6 +252,21 @@ namespace WaterskibaanWPF
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             timer.Interval = TimeSpan.FromSeconds(SD_timer.Value/100);
+        }
+
+        private void CB_Checkbox_Checked(object sender, RoutedEventArgs e)
+        {
+            Gridmain.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            WI_Listbox.Background = new SolidColorBrush(Color.FromRgb(110, 200, 255));
+            IG_Listbox.Background = new SolidColorBrush(Color.FromRgb(110, 200, 255));
+            WS_Listbox.Background = new SolidColorBrush(Color.FromRgb(110, 200, 255));
+            WI_Listbox.Foreground = new SolidColorBrush(Color.FromRgb(20, 20, 20));
+            IG_Listbox.Foreground = new SolidColorBrush(Color.FromRgb(20, 20, 20));
+            WS_Listbox.Foreground = new SolidColorBrush(Color.FromRgb(20, 20, 20));
+            CV_lijnen.Background = new SolidColorBrush(Color.FromRgb(110, 200, 255));
+            gr_logger.Background = new SolidColorBrush(Color.FromRgb(110, 200, 255));
+
+            SP_lichstekleur.Background = new SolidColorBrush(Color.FromRgb(240, 240, 255));
         }
     }
 }
