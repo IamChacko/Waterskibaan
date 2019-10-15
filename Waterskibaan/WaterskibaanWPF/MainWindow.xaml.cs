@@ -22,11 +22,13 @@ using Color = System.Windows.Media.Color;
 
 namespace WaterskibaanWPF
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        public DispatcherTimer timer = new DispatcherTimer();
         public Game game;
         public System.Drawing.Graphics CreateGraphics;
         int counter = 0;
@@ -34,13 +36,11 @@ namespace WaterskibaanWPF
         {
             this.game = new Game();
             game._PrintStatus = true;
-            DispatcherTimer timer = new DispatcherTimer();
             game.Initialize(timer);
             timer.Interval = TimeSpan.FromSeconds(0.1);
             timer.Tick += timer_Tick;
             timer.Start();
             InitializeComponent();
-
 
         }
         void timer_Tick(object sender, EventArgs e)
@@ -228,6 +228,11 @@ namespace WaterskibaanWPF
         private void WI_Listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            timer.Interval = TimeSpan.FromSeconds(SD_timer.Value/100);
         }
     }
 }
